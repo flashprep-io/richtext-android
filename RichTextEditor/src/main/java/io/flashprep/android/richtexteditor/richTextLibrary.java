@@ -26,7 +26,8 @@ public class richTextLibrary extends WebView {
         ITALIC,
         UNDERLINE,
         SUBSCRIPT,
-        SUPERSCRIPT
+        SUPERSCRIPT,
+        STRIKETHROUGH
     }
 
     public interface OnTextChangeListener {
@@ -241,6 +242,9 @@ public class richTextLibrary extends WebView {
     }
     public void setSuperscript() {
         exec("javascript:RE.setSuperscript();");
+    }
+    public void setStrikeThrough() {
+        exec("javascript:RE.setStrikeThrough();");
     }
 
 }
