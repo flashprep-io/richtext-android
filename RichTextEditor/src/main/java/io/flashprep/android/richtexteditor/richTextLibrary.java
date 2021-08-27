@@ -27,7 +27,10 @@ public class richTextLibrary extends WebView {
         UNDERLINE,
         SUBSCRIPT,
         SUPERSCRIPT,
-        STRIKETHROUGH
+        STRIKETHROUGH,
+
+        TEXTCOLOR,
+        BACKGROUNDCOLOR
     }
 
     public interface OnTextChangeListener {
@@ -163,6 +166,8 @@ public class richTextLibrary extends WebView {
     public String getHtml() {
         return mContents;
     }
+
+
     protected void exec(final String trigger) {
         if (isReady) {
             load(trigger);
@@ -174,6 +179,10 @@ public class richTextLibrary extends WebView {
                 }
             }, 100);
         }
+    }
+
+    private String convertHexColorString(int color) {
+        return String.format("#%06X", (0xFFFFFF & color));
     }
 
     private void load(String trigger) {
@@ -243,8 +252,21 @@ public class richTextLibrary extends WebView {
     public void setSuperscript() {
         exec("javascript:RE.setSuperscript();");
     }
-    public void setStrikeThrough() {
+    public void setStrikeThrough()   {
         exec("javascript:RE.setStrikeThrough();");
+    }
+
+
+    public void setTextColor(int color) {
+        exec("javascript:RE.prepareInsert();");
+        String hex = convertHexColorString(color);
+        exec("javascript:RE.setTextColor('" + hex + "');");
+    }
+    public void setTextBackgroundColor(int color) {
+        exec("javascript:RE.prepareInsert();");
+
+        String hex = convertHexColorString(color);
+        exec("javascript:RE.setTextBackgroundColor('" + hex + "');");
     }
 
 }
