@@ -32,6 +32,10 @@ public class richTextLibrary extends WebView {
         TEXTCOLOR,
         BACKGROUNDCOLOR,
         FONTSIZE,
+        PLACEHOLDER,
+        EDITORWIDTH,
+        EDITORHEIGHT,
+        PADDING
     }
 
     public interface OnTextChangeListener {
@@ -272,5 +276,23 @@ public class richTextLibrary extends WebView {
     public void setFontSize(int fontSize) {
         exec("javascript:RE.setFontSize('" + fontSize + "');");
     }
+    public void setPlaceholder(String placeholder) {
+        exec("javascript:RE.setPlaceholder('" + placeholder + "');");
+    }
+    public void setEditorWidth(int px) {
+        exec("javascript:RE.setWidth('" + px + "px');");
+    }
+
+    public void setEditorHeight(int px) {
+        exec("javascript:RE.setHeight('" + px + "px');");
+    }
+    @Override
+    public void setPadding(int left, int top, int right, int bottom) {
+        super.setPadding(left, top, right, bottom);
+        exec("javascript:RE.setPadding('" + left + "px', '" + top + "px', '" + right + "px', '" + bottom
+                + "px');");
+    }
+    
+
 
 }
