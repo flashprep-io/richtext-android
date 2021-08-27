@@ -30,7 +30,8 @@ public class richTextLibrary extends WebView {
         STRIKETHROUGH,
 
         TEXTCOLOR,
-        BACKGROUNDCOLOR
+        BACKGROUNDCOLOR,
+        FONTSIZE,
     }
 
     public interface OnTextChangeListener {
@@ -267,6 +268,9 @@ public class richTextLibrary extends WebView {
 
         String hex = convertHexColorString(color);
         exec("javascript:RE.setTextBackgroundColor('" + hex + "');");
+    }
+    public void setFontSize(int fontSize) {
+        exec("javascript:RE.setFontSize('" + fontSize + "');");
     }
 
 }
