@@ -39,7 +39,8 @@ public class richTextLibrary extends WebView {
         PADDING,
         SETHTML,
         GETHTML,
-        BACKGROUNDRESOURCE
+        BACKGROUNDRESOURCE,
+        INSERTIMAGE
     }
 
     public interface OnTextChangeListener {
@@ -308,6 +309,36 @@ public class richTextLibrary extends WebView {
         bitmap.recycle();
 
         exec("javascript:RE.setBackgroundImage('url(data:image/png;base64," + base64 + ")');");
+    }
+
+    public void insertImage(String url, String alt) {
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.insertImage('" + url + "', '" + alt + "');");
+    }
+    /**
+     * the image according to the specific width of the image automatically
+     *
+     * @param url
+     * @param alt
+     * @param width
+     */
+    public void insertImage(String url, String alt, int width) {
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.insertImageW('" + url + "', '" + alt + "','" + width + "');");
+    }
+
+    /**
+     * insertImage(String, String)} will show the original size of the image.
+     * So this method can manually process the image by adjusting specific width and height to fit into different mobile screens.
+     *
+     * @param url
+     * @param alt
+     * @param width
+     * @param height
+     */
+    public void insertImage(String url, String alt, int width, int height) {
+        exec("javascript:RE.prepareInsert();");
+        exec("javascript:RE.insertImageWH('" + url + "', '" + alt + "','" + width + "', '" + height + "');");
     }
 
 
