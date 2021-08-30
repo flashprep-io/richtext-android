@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
@@ -35,7 +36,10 @@ public class richTextLibrary extends WebView {
         PLACEHOLDER,
         EDITORWIDTH,
         EDITORHEIGHT,
-        PADDING
+        PADDING,
+        SETHTML,
+        GETHTML,
+        BACKGROUNDRESOURCE
     }
 
     public interface OnTextChangeListener {
@@ -156,21 +160,7 @@ public class richTextLibrary extends WebView {
         ta.recycle();
     }
 
-    public void setHtml(String contents) {
-        if (contents == null) {
-            contents = "";
-        }
-        try {
-            exec("javascript:RE.setHtml('" + URLEncoder.encode(contents, "UTF-8") + "');");
-        } catch (UnsupportedEncodingException e) {
-            // No handling
-        }
-        mContents = contents;
-    }
 
-    public String getHtml() {
-        return mContents;
-    }
 
 
     protected void exec(final String trigger) {
@@ -292,7 +282,34 @@ public class richTextLibrary extends WebView {
         exec("javascript:RE.setPadding('" + left + "px', '" + top + "px', '" + right + "px', '" + bottom
                 + "px');");
     }
-    
+
+    public void setHtml(String contents) {
+        if (contents == null) {
+            contents = "";
+        }
+        try {
+            exec("javascript:RE.setHtml('" + URLEncoder.encode(contents, "UTF-8") + "');");
+        } catch (UnsupportedEncodingException e) {
+            // No handling
+        }
+        mContents = contents;
+    }
+
+
+    public String getHtml() {
+        return mContents;
+    }
+
+
+    @Override
+    public void setBackgroundResource(int resid) {
+        Bitmap bitmap = Utils.decodeResource(getContext(), resid);
+        String base64 = Utils.toBase64(bitmap);
+        bitmap.recycle();
+
+        exec("javascript:RE.setBackgroundImage('url(data:image/png;base64," + base64 + ")');");
+    }
+
 
 
 }
