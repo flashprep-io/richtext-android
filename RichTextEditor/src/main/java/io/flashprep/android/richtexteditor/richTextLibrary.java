@@ -29,7 +29,6 @@ public class richTextLibrary extends WebView {
         SUBSCRIPT,
         SUPERSCRIPT,
         STRIKETHROUGH,
-
         TEXTCOLOR,
         BACKGROUNDCOLOR,
         FONTSIZE,
@@ -161,9 +160,6 @@ public class richTextLibrary extends WebView {
         ta.recycle();
     }
 
-
-
-
     protected void exec(final String trigger) {
         if (isReady) {
             load(trigger);
@@ -231,24 +227,26 @@ public class richTextLibrary extends WebView {
     }
 
     public void setBold() {
-
         exec("javascript:RE.setBold();");
     }
-    public void setItalic() {
 
+    public void setItalic() {
         exec("javascript:RE.setItalic();");
     }
-    public void setUnderline() {
 
+    public void setUnderline() {
         exec("javascript:RE.setUnderline();");
     }
+
     public void setSubscript() {
         exec("javascript:RE.setSubscript();");
     }
+
     public void setSuperscript() {
         exec("javascript:RE.setSuperscript();");
     }
-    public void setStrikeThrough()   {
+
+    public void setStrikeThrough() {
         exec("javascript:RE.setStrikeThrough();");
     }
 
@@ -258,18 +256,21 @@ public class richTextLibrary extends WebView {
         String hex = convertHexColorString(color);
         exec("javascript:RE.setTextColor('" + hex + "');");
     }
+
     public void setTextBackgroundColor(int color) {
         exec("javascript:RE.prepareInsert();");
-
         String hex = convertHexColorString(color);
         exec("javascript:RE.setTextBackgroundColor('" + hex + "');");
     }
+
     public void setFontSize(int fontSize) {
         exec("javascript:RE.setFontSize('" + fontSize + "');");
     }
+
     public void setPlaceholder(String placeholder) {
         exec("javascript:RE.setPlaceholder('" + placeholder + "');");
     }
+
     public void setEditorWidth(int px) {
         exec("javascript:RE.setWidth('" + px + "px');");
     }
@@ -277,6 +278,7 @@ public class richTextLibrary extends WebView {
     public void setEditorHeight(int px) {
         exec("javascript:RE.setHeight('" + px + "px');");
     }
+
     @Override
     public void setPadding(int left, int top, int right, int bottom) {
         super.setPadding(left, top, right, bottom);
@@ -315,6 +317,7 @@ public class richTextLibrary extends WebView {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertImage('" + url + "', '" + alt + "');");
     }
+
     /**
      * the image according to the specific width of the image automatically
      *
@@ -340,7 +343,5 @@ public class richTextLibrary extends WebView {
         exec("javascript:RE.prepareInsert();");
         exec("javascript:RE.insertImageWH('" + url + "', '" + alt + "','" + width + "', '" + height + "');");
     }
-
-
 
 }
