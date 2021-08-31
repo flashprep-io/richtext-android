@@ -4,7 +4,10 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.JsonObject
+import io.flashprep.android.richtexteditor.htmltoquilldelta.HtmlToQuillDelta
 import io.flashprep.android.richtexteditor.richTextLibrary
+import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var strikethroughButton: Button
     private lateinit var addImageButton: Button
     private lateinit var getHtml: Button
+    private lateinit var getDetla: Button
     private var htmlData = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         strikethroughButton = findViewById(R.id.strikethroughButton)
         addImageButton = findViewById(R.id.addImageButton)
         getHtml = findViewById(R.id.getHtml)
+        getDetla = findViewById(R.id.getDetla)
 
     }
 
@@ -120,11 +125,20 @@ class MainActivity : AppCompatActivity() {
         getHtml.setOnClickListener {
             getHtml()
         }
+
+        getDetla.setOnClickListener {
+            getQuillDelta()
+        }
     }
 
     private fun getHtml(){
         htmlData = richTextEditor.html
         println("---------: ${htmlData}")
+    }
+
+    private fun getQuillDelta(){
+        val quillObject  = HtmlToQuillDelta.getQuillDelta(richTextEditor.html)
+        println("------${quillObject}")
     }
 
 }
