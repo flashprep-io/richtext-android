@@ -9,17 +9,16 @@ import io.flashprep.android.richtexteditor.richTextLibrary
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var richTextEditor : richTextLibrary
-    private lateinit var boldButton : Button
-    private lateinit var italicButton : Button
-    private lateinit var underlineButton : Button
+    private lateinit var richTextEditor: richTextLibrary
+    private lateinit var boldButton: Button
+    private lateinit var italicButton: Button
+    private lateinit var underlineButton: Button
     private lateinit var subscriptButton: Button
     private lateinit var superscriptButton: Button
     private lateinit var strikethroughButton: Button
-    private lateinit var addImageButton : Button
-    private lateinit var setTextColor : Button
-    private lateinit var setBackgroundColor: Button
-    private lateinit var setFontSize: Button
+    private lateinit var addImageButton: Button
+    private lateinit var getHtml: Button
+    private var htmlData = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,49 +29,59 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun setBold(){
+    private fun setBold() {
         richTextEditor.setBold()
     }
-    private fun setItalic(){
+
+    private fun setItalic() {
         richTextEditor.setItalic()
     }
-    private fun setUnderline(){
+
+    private fun setUnderline() {
         richTextEditor.setUnderline()
     }
-    private  fun setSubscipt(){
+
+    private fun setSubscipt() {
         richTextEditor.setSubscript()
     }
-    private fun setSuperscript(){
+
+    private fun setSuperscript() {
         richTextEditor.setSuperscript()
     }
-    private fun setStrikethrough(){
+
+    private fun setStrikethrough() {
         richTextEditor.setStrikeThrough()
     }
-    private fun insertImage( ) {
-        richTextEditor.insertImage("https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg",
-                "dachshund", 320)
+
+    private fun insertImage() {
+        richTextEditor.insertImage(
+            "https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg",
+            "dachshund", 320
+        )
     }
-    private fun setTextColor(){
+
+    private fun setTextColor() {
         richTextEditor.setTextColor(Color.BLUE)
     }
-    private fun setBackgroundColor(){
+
+    private fun setBackgroundColor() {
         richTextEditor.setBackgroundColor(Color.YELLOW)
     }
-    private fun setFontSize(){
+
+    private fun setFontSize() {
         richTextEditor.setFontSize(18)
     }
-    private fun setPadding(){
-        richTextEditor.setPadding(70,40,10,10)
+
+    private fun setPadding() {
+        richTextEditor.setPadding(70, 40, 10, 10)
     }
-    private fun setPlaceHoder(){
+
+    private fun setPlaceHoder() {
         richTextEditor.setPlaceholder("Hi, This is it")
     }
 
 
-
-
-
-    private fun initLibrary(){
+    private fun initLibrary() {
         richTextEditor = findViewById(R.id.richTextEditor)
         boldButton = findViewById(R.id.boldButton)
         italicButton = findViewById(R.id.italicButton)
@@ -81,22 +90,21 @@ class MainActivity : AppCompatActivity() {
         superscriptButton = findViewById(R.id.superscriptButton)
         strikethroughButton = findViewById(R.id.strikethroughButton)
         addImageButton = findViewById(R.id.addImageButton)
-        setTextColor = findViewById(R.id.setTextColor)
-        setBackgroundColor = findViewById(R.id.backgroundColor)
-        setFontSize = findViewById(R.id.fontsize)
+        getHtml = findViewById(R.id.getHtml)
 
     }
-    private fun bindView(){
+
+    private fun bindView() {
         boldButton.setOnClickListener {
             setBold()
         }
-        italicButton.setOnClickListener{
+        italicButton.setOnClickListener {
             setItalic()
         }
         underlineButton.setOnClickListener {
             setUnderline()
         }
-        subscriptButton.setOnClickListener{
+        subscriptButton.setOnClickListener {
             setSubscipt()
         }
         superscriptButton.setOnClickListener {
@@ -108,23 +116,15 @@ class MainActivity : AppCompatActivity() {
         addImageButton.setOnClickListener {
             insertImage()
         }
-        setTextColor.setOnClickListener {
-            setTextColor()
+
+        getHtml.setOnClickListener {
+            getHtml()
         }
-        setBackgroundColor.setOnClickListener {
-            setBackgroundColor()
-        }
-        setFontSize.setOnClickListener {
-            setFontSize()
-        }
-        setPadding()
-        setPlaceHoder()
-
-
-
-
     }
 
-
+    private fun getHtml(){
+        htmlData = richTextEditor.html
+        println("---------: ${htmlData}")
+    }
 
 }
