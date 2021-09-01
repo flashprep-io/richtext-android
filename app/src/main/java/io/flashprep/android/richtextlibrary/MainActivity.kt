@@ -24,6 +24,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var getDetla: Button
     private var htmlData = ""
 
+    private var isBold = false
+    private var isItalic = false
+    private var isUnderLine = false
+    private var isSubScript = false
+    private var isSuperScript = false
+    private var isStrikeThrough = false
+    private var image = false
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,26 +43,66 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setBold() {
+        isBold = !isBold
+        if(isBold){
+            boldButton.setTextColor(getColor(R.color.teal_200))
+        }else{
+            boldButton.setTextColor(getColor(R.color.white))
+        }
         richTextEditor.setBold()
     }
 
     private fun setItalic() {
+        isItalic = !isItalic
+        if(isItalic){
+            italicButton.setTextColor(getColor(R.color.teal_200))
+        }else{
+            italicButton.setTextColor(getColor(R.color.white))
+        }
         richTextEditor.setItalic()
     }
 
     private fun setUnderline() {
+        isUnderLine = !isUnderLine
+        if(isUnderLine){
+            underlineButton.setTextColor(getColor(R.color.teal_200))
+        }else{
+            underlineButton.setTextColor(getColor(R.color.white))
+        }
         richTextEditor.setUnderline()
     }
 
     private fun setSubscipt() {
-        richTextEditor.setSubscript()
+        isSubScript = !isSubScript
+        if(isSubScript){
+            subscriptButton.setTextColor(getColor(R.color.teal_200))
+            richTextEditor.setSubscript()
+        }else{
+            subscriptButton.setTextColor(getColor(R.color.white))
+            richTextEditor.setSubscript()
+            richTextEditor.setSubscript()
+        }
     }
 
     private fun setSuperscript() {
-        richTextEditor.setSuperscript()
+        isSuperScript = !isSuperScript
+        if(isSuperScript){
+            superscriptButton.setTextColor(getColor(R.color.teal_200))
+            richTextEditor.setSuperscript()
+        }else{
+            superscriptButton.setTextColor(getColor(R.color.white))
+            richTextEditor.setSuperscript()
+            richTextEditor.setSuperscript()
+        }
     }
 
     private fun setStrikethrough() {
+        isStrikeThrough = !isStrikeThrough
+        if(isStrikeThrough){
+            strikethroughButton.setTextColor(getColor(R.color.teal_200))
+        }else{
+            strikethroughButton.setTextColor(getColor(R.color.white))
+        }
         richTextEditor.setStrikeThrough()
     }
 
