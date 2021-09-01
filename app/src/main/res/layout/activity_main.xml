@@ -7,7 +7,7 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
-    <io.flashprep.android.richtexteditor.richTextLibrary
+    <io.flashprep.android.richtexteditor.RichTextLibrary
         android:id="@+id/richTextEditor"
         android:layout_width="match_parent"
         android:layout_height="250dp"
