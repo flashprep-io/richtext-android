@@ -4,15 +4,13 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.JsonObject
 import io.flashprep.android.richtexteditor.htmltoquilldelta.HtmlToQuillDelta
-import io.flashprep.android.richtexteditor.richTextLibrary
-import org.json.JSONObject
+import io.flashprep.android.richtexteditor.RichTextLibrary
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var richTextEditor: richTextLibrary
+    private lateinit var richTextEditor: RichTextLibrary
     private lateinit var boldButton: Button
     private lateinit var italicButton: Button
     private lateinit var underlineButton: Button
@@ -39,6 +37,7 @@ class MainActivity : AppCompatActivity() {
 
         initLibrary()
         bindView()
+        focusEditor()
     }
 
 
@@ -108,8 +107,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun insertImage() {
         richTextEditor.insertImage(
-            "https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg",
-            "dachshund", 320
+            "https://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg",
+            "demo image",
+            300,
+            200
         )
     }
 
@@ -189,5 +190,11 @@ class MainActivity : AppCompatActivity() {
         val quillObject  = HtmlToQuillDelta.getQuillDelta(richTextEditor.html)
         println("------${quillObject}")
     }
+
+    private fun focusEditor(){
+        //richTextEditor.focusEditor()
+    }
+
+
 
 }
