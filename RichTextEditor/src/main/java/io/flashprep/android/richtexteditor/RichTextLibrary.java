@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class richTextLibrary extends WebView {
+public class RichTextLibrary extends WebView {
     public enum Type {
         BOLD,
         ITALIC,
@@ -66,16 +66,16 @@ public class richTextLibrary extends WebView {
     private OnDecorationStateListener mDecorationStateListener;
     private AfterInitialLoadListener mLoadListener;
 
-    public richTextLibrary(Context context) {
+    public RichTextLibrary(Context context) {
         this(context, null);
     }
 
-    public richTextLibrary(Context context, AttributeSet attrs) {
+    public RichTextLibrary(Context context, AttributeSet attrs) {
         this(context, attrs, android.R.attr.webViewStyle);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    public richTextLibrary(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RichTextLibrary(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         setVerticalScrollBarEnabled(false);

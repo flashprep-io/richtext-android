@@ -4,15 +4,13 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.JsonObject
 import io.flashprep.android.richtexteditor.htmltoquilldelta.HtmlToQuillDelta
-import io.flashprep.android.richtexteditor.richTextLibrary
-import org.json.JSONObject
+import io.flashprep.android.richtexteditor.RichTextLibrary
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var richTextEditor: richTextLibrary
+    private lateinit var richTextEditor: RichTextLibrary
     private lateinit var boldButton: Button
     private lateinit var italicButton: Button
     private lateinit var underlineButton: Button
@@ -109,8 +107,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun insertImage() {
         richTextEditor.insertImage(
-            "https://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg",
-            "dachshund"
+            "http://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg",
+            "demo image"
         )
     }
 
@@ -192,9 +190,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun focusEditor(){
-        richTextEditor.focusEditor()
+        //richTextEditor.focusEditor()
     }
 
-    
+
 
 }
