@@ -29,35 +29,45 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="B"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
         <Button
             android:id="@+id/italicButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="I"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
         <Button
             android:id="@+id/underlineButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="U"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
         <Button
             android:id="@+id/subscriptButton"
-            android:layout_width="65dp"
+            android:layout_width="70dp"
             android:layout_height="50dp"
             android:text="SUB"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
         <Button
             android:id="@+id/superscriptButton"
-            android:layout_width="85dp"
+            android:layout_width="90dp"
             android:layout_height="50dp"
             android:text="SUPER"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
     </LinearLayout>
 
@@ -72,17 +82,21 @@
 
         <Button
             android:id="@+id/strikethroughButton"
-            android:layout_width="90dp"
+            android:layout_width="95dp"
             android:layout_height="50dp"
             android:text="STRIKE"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
         <Button
             android:id="@+id/addImageButton"
-            android:layout_width="85dp"
+            android:layout_width="90dp"
             android:layout_height="50dp"
             android:text="IMAGE"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
     </LinearLayout>
 
@@ -99,16 +113,20 @@
         <Button
             android:id="@+id/getHtml"
             android:layout_width="100dp"
-            android:layout_height="55dp"
+            android:layout_height="60dp"
             android:text="GET HTML"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
         <Button
             android:id="@+id/getDetla"
             android:layout_width="100dp"
-            android:layout_height="55dp"
+            android:layout_height="60dp"
             android:text="GET DELTA"
-            android:layout_marginStart="5dp"/>
+            android:textSize="16sp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#0DFFFFFF"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
