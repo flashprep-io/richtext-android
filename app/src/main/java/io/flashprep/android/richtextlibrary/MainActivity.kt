@@ -107,8 +107,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun insertImage() {
         richTextEditor.insertImage(
-            "http://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg",
-            "demo image"
+            "https://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg",
+            "demo image",
+            300,
+            200
         )
     }
 
