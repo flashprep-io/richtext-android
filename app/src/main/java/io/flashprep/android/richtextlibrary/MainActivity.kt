@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         initLibrary()
         bindView()
+        focusEditor()
     }
 
 
@@ -108,8 +109,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun insertImage() {
         richTextEditor.insertImage(
-            "https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg",
-            "dachshund", 320
+            "https://flashprep-media-aps1.s3.ap-south-1.amazonaws.com/release/000-create-default/01.jpg",
+            "dachshund"
         )
     }
 
@@ -189,5 +190,11 @@ class MainActivity : AppCompatActivity() {
         val quillObject  = HtmlToQuillDelta.getQuillDelta(richTextEditor.html)
         println("------${quillObject}")
     }
+
+    private fun focusEditor(){
+        richTextEditor.focusEditor()
+    }
+
+    
 
 }

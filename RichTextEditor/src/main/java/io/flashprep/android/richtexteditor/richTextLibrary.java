@@ -344,4 +344,9 @@ public class richTextLibrary extends WebView {
         exec("javascript:RE.insertImageWH('" + url + "', '" + alt + "','" + width + "', '" + height + "');");
     }
 
+    public void focusEditor() {
+        requestFocus();
+        exec("javascript:RE.focus();");
+    }
+
 }
