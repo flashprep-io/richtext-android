@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun focusEditor(){
-        //richTextEditor.focusEditor()
+        richTextEditor.focusEditor()
     }
 
 
