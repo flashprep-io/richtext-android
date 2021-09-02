@@ -8,9 +8,9 @@ project.afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'io.flashprep.android.richtextlibrary'
-                artifactId = 'RichTextEditor'
-                version = 'v1.0.17'
+                groupId = 'com.github.flashprep-io'
+                artifactId = 'richtext-android'
+                version = 'v1.0.18'
             }
         }
     }
