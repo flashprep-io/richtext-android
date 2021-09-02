@@ -9,8 +9,8 @@ project.afterEvaluate {
         publications {
             release(MavenPublication) {
                 groupId = 'com.github.strom-hawk'
-                artifactId = 'rich-text-library'
-                version = '1.0.0'
+                artifactId = 'richtext-android'
+                version = 'v1.0.12'
                 artifact("$buildDir/outputs/aar/${project.getName()}.aar")
             }
         }
