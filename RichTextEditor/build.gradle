@@ -10,8 +10,7 @@ project.afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.flashprep-io'
                 artifactId = 'richtext-android'
-                version = 'v1.0.13'
-                artifact("$buildDir/outputs/aar/${project.getName()}.aar")
+                version = 'v1.0.14'
             }
         }
     }
