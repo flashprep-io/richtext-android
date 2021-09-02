@@ -1,8 +1,11 @@
 package io.flashprep.android.richtextlibrary
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import io.flashprep.android.richtexteditor.htmltoquilldelta.HtmlToQuillDelta
 import io.flashprep.android.richtexteditor.RichTextLibrary
@@ -11,6 +14,7 @@ import io.flashprep.android.richtexteditor.RichTextLibrary
 class MainActivity : AppCompatActivity() {
 
     private lateinit var richTextEditor: RichTextLibrary
+    private lateinit var testTextView: TextView
     private lateinit var boldButton: Button
     private lateinit var italicButton: Button
     private lateinit var underlineButton: Button
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var addImageButton: Button
     private lateinit var getHtml: Button
     private lateinit var getDetla: Button
+    private lateinit var setData: Button
     private var htmlData = ""
 
     private var isBold = false
@@ -146,6 +151,8 @@ class MainActivity : AppCompatActivity() {
         addImageButton = findViewById(R.id.addImageButton)
         getHtml = findViewById(R.id.getHtml)
         getDetla = findViewById(R.id.getDetla)
+        testTextView = findViewById(R.id.testTextView)
+        setData = findViewById(R.id.setData)
 
     }
 
@@ -179,6 +186,10 @@ class MainActivity : AppCompatActivity() {
         getDetla.setOnClickListener {
             getQuillDelta()
         }
+
+        setData.setOnClickListener {
+            setData()
+        }
     }
 
     private fun getHtml(){
@@ -193,6 +204,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun focusEditor(){
         richTextEditor.focusEditor()
+    }
+
+    private fun setData(){
+        testTextView.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(richTextEditor.html, Html.FROM_HTML_MODE_COMPACT)
+        } else {
+            Html.fromHtml(richTextEditor.html)
+        }
     }
 
 
