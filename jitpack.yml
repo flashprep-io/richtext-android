@@ -2,3 +2,5 @@ jdk:
   - openjdk11
 before_install:
   - chmod +x gradlew
+install:
+  - ./gradlew assemble publishToMavenLocal --info
