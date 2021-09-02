@@ -1,6 +1,20 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'maven-publish'
+}
+
+project.afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.strom-hawk'
+                artifactId = 'rich-text-library'
+                version = '1.0.0'
+                artifact("$buildDir/outputs/aar/${project.getName()}.aar")
+            }
+        }
+    }
 }
 
 android {
