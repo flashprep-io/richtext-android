@@ -8,9 +8,9 @@ project.afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                groupId = 'com.github.strom-hawk'
+                groupId = 'com.github.flashprep-io'
                 artifactId = 'richtext-android'
-                version = 'v1.0.12'
+                version = 'v1.0.13'
                 artifact("$buildDir/outputs/aar/${project.getName()}.aar")
             }
         }
